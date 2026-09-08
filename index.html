@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательный центр SKALE - частная школа и садик в Казани</title>
+    <link rel="icon" type="image/png" href="https://skale-kzn.ru/wp-content/uploads/cropped-fav-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Base Styles */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #FF6B6B;
+            --primary-hover: #FF5252;
+            --secondary-color: #4ECDC4;
+            --dark-color: #2C3E50;
+            --light-color: #F8F9FA;
+            --gray-color: #6C757D;
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Header Styles */
+        .top-banner {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 600;
+        }
+
+        .top-banner a {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 50px;
+            height: 50px;
+            fill: var(--primary-color);
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--dark-color);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .header-phone {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .header-phone a {
+            display: block;
+            font-size: 14px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--dark-color);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FFF5F5 0%, #F0FFFE 100%);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background-color: var(--secondary-color);
+            opacity: 0.2;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-item img {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 36px;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--gray-color);
+            font-size: 16px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #FFF5F5;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+        }
+
+        .about-content ul {
+            margin-bottom: 25px;
+        }
+
+        .about-content li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--gray-color);
+            font-size: 16px;
+        }
+
+        .about-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .about-content p.result {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 18px;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: 1 / 3;
+        }
+
+        .gallery-item:nth-child(2) {
+            grid-column: 3 / 5;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #F0FFFE 0%, #FFF5F5 100%);
+        }
+
+        .programs h2 {
+            text-align: center;
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 50px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .program-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .program-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .program-card-content {
+            padding: 30px;
+        }
+
+        .program-card h3 {
+            font-size: 24px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .program-card p {
+            color: var(--gray-color);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .cta .btn:hover {
+            background-color: var(--light-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-color);
+        }
+
+        .footer-logo span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-image img,
+            .about-image img {
+                height: 350px;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, 200px);
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(2) {
+                grid-column: span 1;
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+                gap: 15px;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .header-phone {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <a href="#">Набор 2026-2027 (0-9 классов и сад)</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg viewBox="0 0 71.2843 71.3156">
+                    <path d="M0 2.43675C0 1.09097 1.09049 0 2.43569 0H68.8486C70.1938 0 71.2843 1.09097 71.2843 2.43675V18.5193C71.2843 19.8651 70.1938 20.9561 68.8486 20.9561H33.0441C31.9231 20.9561 31.0144 21.8652 31.0144 22.9867C31.0144 24.1082 31.9231 25.0173 33.0441 25.0173H68.8486C70.1938 25.0173 71.2843 26.1083 71.2843 27.4541V68.8788C71.2843 70.2246 70.1938 71.3156 68.8486 71.3156H2.43568C1.09049 71.3156 0 70.2246 0 68.8788V52.6338C0 51.288 1.09049 50.1971 2.43568 50.1971H38.2402C39.3612 50.1971 40.2699 49.2879 40.2699 48.1664C40.2699 47.0449 39.3612 46.1358 38.2402 46.1358H2.43568C1.09049 46.1358 0 45.0448 0 43.6991V2.43675Z"/>
+                </svg>
+                <span class="logo-text">SKALE</span>
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="programs.html">Программы</a></li>
+                    <li><a href="prices.html">Цены</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-phone">
+                <a href="tel:+78432376315">+7 (843) 237-63-15</a>
+                <a href="tel:+79625567180">+7 962 556 71 80</a>
+            </div>
+
+            <button class="btn" onclick="openModal()">Оставить заявку</button>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Растим умное и здоровое поколение созидателей посредством законов нейро-гуманной педагогики</h1>
+                <p>Мы знаем, что истинно персонализированный подход основывается на классических ценностях гуманной педагогики, научных трудах нейропедагогики и биохакинг-подходе.</p>
+                <button class="btn" onclick="openModal()">Записаться на экскурсию</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://skale-kzn.ru/wp-content/uploads/offer_img.jpg" alt="Дети в образовательном центре SKALE">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item animate-on-scroll">
+                <img src="https://skale-kzn.ru/wp-content/uploads/pus_1.png" alt="Иконка">
+                <strong>10 000+</strong>
+                <p>выпустили детей с 1999 г.</p>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <img src="https://skale-kzn.ru/wp-content/uploads/plus_2.png" alt="Иконка">
+                <strong>5 000+</strong>
+                <p>родителей любят детей, какие они есть</p>
+            </div>
+            <div class="stat-item animate-on-scroll">
+                <img src="https://skale-kzn.ru/wp-content/uploads/plus_4-1.png" alt="Иконка">
+                <strong>25+</strong>
+                <p>нашему центру обучения</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image animate-on-scroll">
+                <img src="https://skale-kzn.ru/wp-content/uploads/maria2026.png" alt="Мария - основатель центра">
+            </div>
+            <div class="about-content animate-on-scroll">
+                <h2>Мы создаем среду</h2>
+                <ul>
+                    <li>Безопасности Вашего ребёнка</li>
+                    <li>Яркого и насыщенного детства</li>
+                    <li>Раскрытия потенциала каждого ребенка</li>
+                    <li>Развития интереса и внутренней мотивации</li>
+                </ul>
+                <p class="result">Результат: то, о чем мы с вами договариваемся на старте — вы получите на выходе!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="animate-on-scroll">Наша атмосфера</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_1.jpg" alt="Учебный процесс">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_2.jpg" alt="Дети на занятиях">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_3.jpg" alt="Творческие занятия">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_4.jpg" alt="Спортивные мероприятия">
+                </div>
+                <div class="gallery-item animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_5.jpg" alt="Групповые занятия">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs">
+        <div class="container">
+            <h2 class="animate-on-scroll">Наши направления</h2>
+            <div class="programs-grid">
+                <div class="program-card animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_1.jpg" alt="Садик">
+                    <div class="program-card-content">
+                        <h3>Садик раннего развития</h3>
+                        <p>Современный подход к дошкольному образованию с использованием методов нейропедагогики и гуманного подхода к каждому ребенку.</p>
+                        <a href="programs.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+                <div class="program-card animate-on-scroll">
+                    <img src="https://skale-kzn.ru/wp-content/uploads/gal_2.jpg" alt="Не Школа">
+                    <div class="program-card-content">
+                        <h3>Семейная частная школа</h3>
+                        <p>Индивидуальная траектория обучения для детей с 0 по 9 класс. Персонализированный подход и внимание к каждому ученику.</p>
+                        <a href="programs.html" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="animate-on-scroll">Приглашаем на экскурсию!</h2>
+            <p class="animate-on-scroll">Познакомьтесь с нашей командой и образовательной средой лично</p>
+            <button class="btn animate-on-scroll" onclick="openModal()">Записаться</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <svg viewBox="0 0 71.2843 71.3156">
+                        <path d="M0 2.43675C0 1.09097 1.09049 0 2.43569 0H68.8486C70.1938 0 71.2843 1.09097 71.2843 2.43675V18.5193C71.2843 19.8651 70.1938 20.9561 68.8486 20.9561H33.0441C31.9231 20.9561 31.0144 21.8652 31.0144 22.9867C31.0144 24.1082 31.9231 25.0173 33.0441 25.0173H68.8486C70.1938 25.0173 71.2843 26.1083 71.2843 27.4541V68.8788C71.2843 70.2246 70.1938 71.3156 68.8486 71.3156H2.43568C1.09049 71.3156 0 70.2246 0 68.8788V52.6338C0 51.288 1.09049 50.1971 2.43568 50.1971H38.2402C39.3612 50.1971 40.2699 49.2879 40.2699 48.1664C40.2699 47.0449 39.3612 46.1358 38.2402 46.1358H2.43568C1.09049 46.1358 0 45.0448 0 43.6991V2.43675Z"/>
+                    </svg>
+                    <span>SKALE</span>
+                </div>
+                <p>Образовательный центр SKALE: семейная частная школа, центр развития мозга, садик раннего развития. Преподаватели гуманной педагогики!</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="programs.html">Программы</a></li>
+                    <li><a href="prices.html">Цены</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Направления</h4>
+                <ul>
+                    <li><a href="#">Садик</a></li>
+                    <li><a href="#">Не Школа</a></li>
+                    <li><a href="#">Акции</a></li>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Блог</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Контакты</h4>
+                <p>📞 <a href="tel:+78432376315">+7 (843) 237-63-15</a></p>
+                <p>📱 <a href="tel:+79625567180">+7 962 556 71 80</a></p>
+                <p>📍 г. Казань</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Образовательный центр SKALE. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Form -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Оставить заявку</h2>
+            <p>Заполните форму и мы свяжемся с вами в ближайшее время</p>
+            <form id="contactForm">
+                <input type="text" placeholder="Ваше имя" required>
+                <input type="tel" placeholder="Телефон" required>
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Сообщение" rows="4"></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Modal Functions
+        function openModal() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Form Submit Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+            closeModal();
+            this.reset();
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header Scroll Effect
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--gray-color);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-btn:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .modal-content p {
+            color: var(--gray-color);
+            margin-bottom: 25px;
+        }
+
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .modal-content input,
+        .modal-content textarea {
+            padding: 14px 18px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .modal-content input:focus,
+        .modal-content textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .modal-content textarea {
+            resize: vertical;
+        }
+
+        .modal-content button {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</body>
+</html>
