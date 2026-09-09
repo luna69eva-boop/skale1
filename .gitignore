@@ -1,0 +1,5 @@
+```
+# Style/CSS build artifacts
+*.css.map
+*.min.css
+```

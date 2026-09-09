@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательный центр SKALE - частная школа и садик в Казани</title>
+    <link rel="icon" type="image/png" href="https://skale-kzn.ru/wp-content/uploads/cropped-fav-32x32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* --- СБРОС И БАЗА --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; color: #2C2C2C; line-height: 1.6; background-color: #ffffff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- КНОПКИ --- */
+        .btn { display: inline-block; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; transition: all 0.3s ease; font-size: 14px; }
+        .btn-primary { background-color: #D48B68; color: white; }
+        .btn-primary:hover { background-color: #b56f4f; transform: translateY(-2px); }
+        .btn-outline { background-color: transparent; border: 2px solid #879875; color: #879875; }
+        .btn-outline:hover { background-color: #879875; color: white; }
+        .btn-large { padding: 16px 32px; font-size: 16px; }
+
+        /* --- ШАПКА --- */
+        .site-header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; padding: 15px 0; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-size: 24px; font-weight: 800; color: #879875; letter-spacing: 1px; }
+        .main-nav ul { display: flex; gap: 25px; }
+        .main-nav a { font-weight: 500; font-size: 15px; }
+        .main-nav a:hover { color: #D48B68; }
+        .header-contacts { display: flex; align-items: center; gap: 20px; }
+        .phone { font-weight: 600; font-size: 15px; }
+
+        /* --- СЕКЦИИ --- */
+        section { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 50px; color: #2C2C2C; }
+
+        /* --- HERO --- */
+        .hero-section { background-color: #FAF7F0; padding: 60px 0; }
+        .hero-inner { display: flex; align-items: center; gap: 50px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 36px; line-height: 1.3; margin-bottom: 20px; color: #2C2C2C; }
+        .hero-text p { font-size: 18px; color: #555; margin-bottom: 30px; }
+        .hero-image { flex: 1; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* --- ЦИФРЫ --- */
+        .stats-section { background: white; padding: 40px 0; border-bottom: 1px solid #eee; }
+        .stats-grid { display: flex; justify-content: space-around; text-align: center; }
+        .stat-item h3 { font-size: 36px; color: #879875; margin-bottom: 5px; }
+        .stat-item p { color: #666; font-size: 14px; }
+
+        /* --- МЫ СОЗДАЕМ СРЕДУ --- */
+        .guarantee-inner { display: flex; align-items: center; gap: 50px; }
+        .guarantee-image { flex: 1; }
+        .guarantee-image img { border-radius: 20px; }
+        .guarantee-text { flex: 1; }
+        .guarantee-text h2 { font-size: 32px; margin-bottom: 20px; }
+        .guarantee-text ul { margin-bottom: 20px; }
+        .guarantee-text li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+        .guarantee-text li::before { content: "✓"; color: #879875; font-weight: bold; position: absolute; left: 0; }
+        .highlight { font-weight: 600; color: #D48B68; font-size: 18px; }
+
+        /* --- ГУМАННАЯ ПЕДАГОГИКА --- */
+        .about-section { background-color: #879875; color: white; }
+        .about-section .section-title { color: white; }
+        .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .about-item { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 16px; text-align: center; font-size: 16px; font-weight: 500; }
+
+        /* --- ЦЕНЫ --- */
+        .prices-section { background-color: #FAF7F0; }
+        .prices-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .price-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .price-card.featured { border: 2px solid #D48B68; transform: scale(1.05); }
+        .price-card h3 { font-size: 20px; margin-bottom: 20px; color: #2C2C2C; }
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 14px; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
+        .price-row strong { color: #879875; }
+        .price-card .btn { margin-top: 15px; width: 100%; }
+
+        /* --- FAQ --- */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid #eee; }
+        .faq-question { width: 100%; text-align: left; padding: 20px 0; background: none; border: none; font-size: 18px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; font-family: 'Montserrat', sans-serif; color: #2C2C2C; }
+        .faq-question .icon { font-size: 24px; color: #879875; }
+        .faq-answer { display: none; padding-bottom: 20px; color: #555; }
+
+        /* --- ПОДВАЛ --- */
+        .site-footer { background-color: #2C2C2C; color: #ccc; padding: 60px 0 0; }
+        .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: white; margin-bottom: 20px; font-size: 18px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col a:hover { color: #D48B68; }
+        .footer-bottom { border-top: 1px solid #444; padding: 20px 0; text-align: center; font-size: 14px; }
+        .small { font-size: 12px; opacity: 0.7; margin-top: 10px; }
+
+        /* --- АДАПТИВНОСТЬ --- */
+        @media (max-width: 900px) {
+            .hero-inner, .guarantee-inner { flex-direction: column; text-align: center; }
+            .about-grid, .prices-grid { grid-template-columns: 1fr; }
+            .price-card.featured { transform: none; }
+            .footer-inner { grid-template-columns: 1fr; text-align: center; }
+            .main-nav { display: none; }
+            .stats-grid { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo-text">SKALE</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="programs.html">Программы</a></li>
+                    <li><a href="prices.html">Цены</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-contacts">
+                <a href="tel:+78432376315" class="phone">+7 (843) 237-63-15</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container hero-inner">
+            <div class="hero-text">
+                <h1>Растим умное и здоровое поколение созидателей</h1>
+                <p>Образовательный центр SKALE — это пространство, где дети учатся мыслить критически, работать в команде и создавать проекты будущего.</p>
+                <button class="btn btn-primary btn-large" onclick="alert('Запись на экскурсию')">Записаться на экскурсию</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://skale-kzn.ru/wp-content/uploads/2023/09/offer_img.jpg" alt="Дети в центре SKALE">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>10 000+</h3>
+                <p>Выпускников</p>
+            </div>
+            <div class="stat-item">
+                <h3>5 000+</h3>
+                <p>Довольных родителей</p>
+            </div>
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Лет опыта</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guarantee Section -->
+    <section>
+        <div class="container guarantee-inner">
+            <div class="guarantee-image">
+                <img src="https://skale-kzn.ru/wp-content/uploads/2023/09/gal_1.jpg" alt="Процесс обучения">
+            </div>
+            <div class="guarantee-text">
+                <h2>Мы создаем среду</h2>
+                <ul>
+                    <li>Развитие мышления, а не зубрежка</li>
+                    <li>Командная работа и лидерство</li>
+                    <li>Творчество и создание проектов</li>
+                    <li>Безопасная и поддерживающая атмосфера</li>
+                </ul>
+                <p class="highlight">Результат: Уверенные в себе дети, готовые к вызовам современного мира!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">Гуманная педагогика</h2>
+            <div class="about-grid">
+                <div class="about-item">Индивидуальный подход к каждому ребенку</div>
+                <div class="about-item">Отсутствие оценок и сравнений</div>
+                <div class="about-item">Фокус на сильных сторонах личности</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section class="prices-section">
+        <div class="container">
+            <h2 class="section-title">Стоимость обучения</h2>
+            <div class="prices-grid">
+                <div class="price-card">
+                    <h3>Садик</h3>
+                    <div class="price-row"><span>Полный день</span> <strong>45 000 ₽</strong></div>
+                    <div class="price-row"><span>Половина дня</span> <strong>30 000 ₽</strong></div>
+                    <button class="btn btn-primary">Выбрать</button>
+                </div>
+                <div class="price-card featured">
+                    <h3>Не Школа</h3>
+                    <div class="price-row"><span>Базовый курс</span> <strong>25 000 ₽</strong></div>
+                    <div class="price-row"><span>Продвинутый</span> <strong>35 000 ₽</strong></div>
+                    <button class="btn btn-primary">Выбрать</button>
+                </div>
+                <div class="price-card">
+                    <h3>IT Клуб</h3>
+                    <div class="price-row"><span>Группа 2-4 чел</span> <strong>15 000 ₽</strong></div>
+                    <div class="price-row"><span>Индивидуально</span> <strong>25 000 ₽</strong></div>
+                    <button class="btn btn-primary">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        Можно ли посетить центр перед записью? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">Да, мы проводим бесплатные экскурсии каждый день по предварительной записи.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">
+                        Есть ли у вас лицензия? <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">Да, наш центр имеет все необходимые лицензии и сертификаты.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-col">
+                <h4>SKALE</h4>
+                <p>Образовательный центр нового поколения</p>
+                <p class="small">© 2024 Все права защищены</p>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="programs.html">Программы</a></li>
+                    <li><a href="prices.html">Цены</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <ul>
+                    <li>Казань, ул. Дементьева 5</li>
+                    <li><a href="tel:+78432376315">+7 (843) 237-63-15</a></li>
+                    <li><a href="mailto:info@skale-kzn.ru">info@skale-kzn.ru</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
