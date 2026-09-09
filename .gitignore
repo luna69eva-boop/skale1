@@ -3,3 +3,4 @@ Nothing needs to be added to .gitignore since only a source file (index.html) wa
 dist/
 build/
 *.log
+node_modules/
